@@ -6,6 +6,7 @@ class DrugsController < ApplicationController
 
   def show
     @drug = Drug.find(params[:id])
+    @review = Review.new
   end
 
   def new
