@@ -4,4 +4,24 @@
 <p> lastname : <%= @user.lastname %> </p>
 <p> email : <%= @user.email %> </p>
 
+<% @user.favorites.each do |favorite| %>
+
+  <div class="product">
+    <div class='product-upvote'>
+      <div class="product-arrow"></div>
+      <div class='product-count'> <%= favorite.drug.id %> </div>
+    </div>
+    <div class='product-body'>
+      <h3><%= favorite.drug.name %> <%= link_to '<span class="glyphicon glyphicon-eye-open"></span>'.html_safe, drug_path(favorite.drug) %> </h3>
+      <p><%= favorite.drug.description %></p>
+<!--     </div>
+    <ul class="list-inline product-controls hidden-sm hidden-xs">
+      <li><a href=""><i class="fa fa-heart"></i></a></li>
+      <li><a href=""><i class="fa fa-share"></i></a></li>
+      <li><a href=""><i class="fa fa-star"></i></a></li>
+    </ul>
+  </div> -->
+
+<% end %>
+
 <p> <%= link_to "Edit", edit_user_registration_path %> </p>

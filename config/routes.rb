@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   resources :drugs, only: [:index, :show, :new, :create]
+
+  get 'drugs/:drug_id/favorites/favorite', to: 'favorites#put_in_favorite', as: :put_in_favorite
+
   get 'profiles', to: 'profiles#show'
 
   devise_for :users

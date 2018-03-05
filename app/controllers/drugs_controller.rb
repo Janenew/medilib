@@ -1,6 +1,7 @@
 class DrugsController < ApplicationController
   def index
     @drugs = Drug.all
+    @user_drugs = current_user.drugs
   end
 
   def show
@@ -21,6 +22,7 @@ class DrugsController < ApplicationController
   end
 
   private
+
   def drug_params
     params.require(:drug).permit(:name, :description, :posology)
   end
