@@ -25,4 +25,14 @@
 
 <% end %>
 
+<h2>My reviews </h2>
+
+<% @user.reviews.each do |review| %>
+
+  <ul>
+    <li> <%= review.drug.name %> : <%= review.description %></li>
+  </ul>
+
+<% end %>
+
 <p> <%= link_to "Edit", edit_user_registration_path %> </p>

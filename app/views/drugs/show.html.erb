@@ -5,4 +5,20 @@
 <p> Description : <%= @drug.description %> </p>
 <p> Posology : <%= @drug.posology %> </p>
 
+<h2> Add a review </h2>
+<%= simple_form_for [@drug, @review] do |f| %>
+  <%= f.input :description %>
+  <%= f.submit :submit %>
+<% end %>
+
 <%= link_to 'Back to drugs list'.html_safe, drugs_path %>
+
+<h2>Reviews </h2>
+
+<% @drug.reviews.each do |review| %>
+
+  <ul>
+    <li> Content : <%= review.description %></li>
+  </ul>
+
+<% end %>
